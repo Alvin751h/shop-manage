@@ -73,9 +73,9 @@ def bill():
                     reader = csv.DictReader(file)
                     for row in reader:
                         if row['Name'] == a:
-                            pric=(int(row['Price']))
+                            pric=(int(row['Price(rs)']))
                 billamnt+=pric*(int((qty**2)**0.5))
-                table.add_row([a, qty, str(pric*qty)+'₹'])
+                table.add_row([a, qty, str(pric*qty)+f"\u20B9"])
     billp=f'\n\n**************************************************************\n                    |{sname}|\n  >name:{user}\n  >contactno:{n}\n  >date:{date.today()}\n**************************************************************\n\n{table}\n                 grand total:{str(billamnt)+'₹'}\n\n Thank You for purchasing from us\n**************************************************************'
     print(billp)
     with open(f'bill_{n}.txt','w',encoding="utf-8") as billt:
