@@ -6,7 +6,7 @@ import os
 if not os.path.exists('items.csv'):
      with open("items.csv", mode='w', newline='') as file202:
          wrt=csv.writer(file202)
-         wrt.writerow(['Name','Quantity','Price(₹)'])
+         wrt.writerow(['Name','Quantity','Price(rs)'])
 sname=' '
 #to set shop name
 def setname():
@@ -76,7 +76,7 @@ def bill():
                             pric=(int(row['Price(rs)']))
                 billamnt+=pric*(int((qty**2)**0.5))
                 table.add_row([a, qty, str(pric*qty)+f"\u20B9"])
-    billp=f'\n\n**************************************************************\n                    |{sname}|\n  >name:{user}\n  >contactno:{n}\n  >date:{date.today()}\n**************************************************************\n\n{table}\n                 grand total:{str(billamnt)+'₹'}\n\n Thank You for purchasing from us\n**************************************************************'
+    billp=f'\n\n**************************************************************\n                    |{sname}|\n  >name:{user}\n  >contactno:{n}\n  >date:{date.today()}\n**************************************************************\n\n{table}\n                 grand total:{str(billamnt)+"₹"}\n\n Thank You for purchasing from us\n**************************************************************'
     print(billp)
     with open(f'bill_{n}.txt','w',encoding="utf-8") as billt:
         billt.write(billp)
